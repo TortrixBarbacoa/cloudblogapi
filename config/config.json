@@ -1,6 +1,5 @@
 {
-    "host": "localhost",
-    "user": "root",
-    "database": "cloudblogdb",
-    "password": "root"
+    "host": "cloudblogdb.cd40q2qwgtyy.us-east-1.rds.amazonaws.com",
+    "user": "cloudblogdbuser", 
+    "database": "cloudblogdb"
 }
