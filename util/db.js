@@ -8,7 +8,6 @@ const rds = new AWS.RDS();
 // Function to generate the IAM authentication token
 function generateAuthToken() {
   return new Promise((resolve, reject) => {
-    // Generate the IAM auth token for connecting to RDS
     const token = rds.generateDbAuthToken({
       DBHostname: config.host,
       Port: 3306,
@@ -33,7 +32,7 @@ async function createPool() {
       }
     });
 
-    return pool.promise();
+    return pool.promise(); // Return pool with promise API
   } catch (error) {
     console.error('Error generating DB auth token or creating pool:', error);
     throw error;

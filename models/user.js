@@ -1,4 +1,12 @@
-const db = require('../util/db');
+const createPool = require('../util/db'); // Correct import
+let db;
+
+createPool().then(pool => {
+    db = pool;
+}).catch(err => {
+    console.error("Error creating DB pool:", err);
+    throw err; // Handle pool creation errors
+});
 
 module.exports = class User {
     constructor(name, last_name, username, password, title, email) {
@@ -11,21 +19,17 @@ module.exports = class User {
     }
 
     static find(username) {
-        return db.execute(
-            'SELECT * FROM users WHERE username = ?', [username]
-        );
+        return db.execute('SELECT * FROM users WHERE username = ?', [username]);
     }
 
-    static save(user){
+    static save(user) {
         return db.execute(
-            'INSERT INTO users (name, last_name, username, password, title, email) VALUES (?, ?, ?, ?, ?, ?)', [user.name, user.last_name, user.username, user.password, user.title, user.email]
-        )
+            'INSERT INTO users (name, last_name, username, password, title, email) VALUES (?, ?, ?, ?, ?, ?)', 
+            [user.name, user.last_name, user.username, user.password, user.title, user.email]
+        );
     }
 
     static fetchAll() {
-        return db.execute(
-            'SELECT * FROM users'
-        );
+        return db.execute('SELECT * FROM users');
     }
 };
-
