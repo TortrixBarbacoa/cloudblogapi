@@ -1,6 +1,6 @@
 {
     "region": "us-east-1",
     "host": "cloudblogdb.cd40q2qwgtyy.us-east-1.rds.amazonaws.com",
-    "user": "cloudblogdbuser", 
+    "user": "admin", 
     "database": "cloudblogdb"
 }
