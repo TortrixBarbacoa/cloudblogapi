@@ -22,12 +22,13 @@ exports.postPost = async (req, res, next) => {
         });
     }
 
-    const { title, body } = req.body;
+    const { title, body, imageUrl } = req.body;
 
     try {
         const postDetails = {
             title: title,
-            body: body
+            body: body,
+            imageUrl: imageUrl
         };
         result = await Post.save(postDetails); 
         res.status(201).json({ message: 'Post created successfully!' });

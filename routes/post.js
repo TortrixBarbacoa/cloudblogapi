@@ -11,7 +11,8 @@ router.get('/:id', postsController.fetchPost);
 router.post(
   '/', [
     body('title').trim().not().isEmpty(),
-    body('body').trim().not().isEmpty()
+    body('body').trim().not().isEmpty(),
+    body('imageUrl').trim().not().isEmpty()
   ],
   postsController.postPost
 );
