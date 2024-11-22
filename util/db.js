@@ -8,9 +8,10 @@ async function createPool() {
 
     const pool = mysql.createPool({
       host: config.host,
+      port: 3306,
       user: config.user,
       database: config.database,
-      password: config.password,
+      password: config.password
       
     });
 
