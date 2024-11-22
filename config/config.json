@@ -3,4 +3,5 @@
     "host": "cloudblogdb.cd40q2qwgtyy.us-east-1.rds.amazonaws.com",
     "user": "admin", 
     "database": "cloudblogdb"
+    "password": "rootadmin"
 }
