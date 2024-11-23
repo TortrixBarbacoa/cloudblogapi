@@ -1,4 +1,12 @@
-const db = require('../util/db');
+const createPool = require('../util/db'); // Correct import
+let db;
+
+createPool().then(pool => {
+    db = pool;
+}).catch(err => {
+    console.error("Error creating DB pool:", err);
+    throw err; // Handle pool creation errors
+});
 
 module.exports = class Post {
     constructor(title, body, imageUrl) {
